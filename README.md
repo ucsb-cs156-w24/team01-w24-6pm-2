@@ -8,8 +8,8 @@ Lab instructions: <https://ucsb-cs156.github.io/w24/lab/team01.html>
 |   Name     | GitHub Id |  Service                    | Controller                |
 |------------|-----------|-----------------------------|---------------------------|
 |Demir Ince  |DemirInce  | `LocationQueryService`      | `LocationController`      |
-|            |           | `PublicHolidayQueryService` | `PublicHolidayController` |
-|            |           | `TidesQueryService`         | `TidesController`         |
+|Vincent Zhu |           | `PublicHolidayQueryService` | `PublicHolidayController` |
+|Kevin Lee   |kjlee2504  | `TidesQueryService`         | `TidesController`         |
 |            |           | `UniversityQueryService`    | `UniversityController`    |
 |            |           | `ZipCodeQueryService`       | `ZipCodeController`       |
 |            |           | `ZipCodeQueryService`       | `ZipCodeController`       |
