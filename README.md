@@ -15,12 +15,7 @@ Lab instructions: <https://ucsb-cs156.github.io/w24/lab/team01.html>
 ```
 Repo: https://github.com/ucsb-cs156-w24/team01-w24-6pm-2
 
-* TODO: Correct the links to app on Dokku below,
-  then delete this TODO.  Replace it with
-  a link to your running app on Dokku, e.g.
-  https://team01.dokku-00.cs.ucsb.edu
-
-On Heroku: https://team01.dokku-00.cs.ucsb.edu
+On Heroku: http://team01.dokku-10.cs.ucsb.edu
 
 ## About this repo
 
