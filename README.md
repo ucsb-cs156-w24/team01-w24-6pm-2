@@ -1,4 +1,4 @@
-# w24-6pm-2-team01
+# team01-w24-6pm-2
 
 Lab instructions: <https://ucsb-cs156.github.io/w24/lab/team01.html>
 
@@ -13,18 +13,6 @@ Lab instructions: <https://ucsb-cs156.github.io/w24/lab/team01.html>
 |           |           | `UniversityQueryService`    | `UniversityController`    |
 |           |           | `ZipCodeQueryService`       | `ZipCodeController`       |
 ```
-
-
-* TODO: Change the title of this README
-  in the text `# STARTER-team01` above
-  to match the name of your repo, i. e., `w24-5pm-2-team01`, then delete
-  this TODO item.
-
-* TODO: Correct the links to repo below,
-  then delete this TODO.  Replace it with
-  a link to your repo, e.g.
-  https://github.com/ucsb-cs156-w24/w24-5pm-2-team01
-
 Repo: https://github.com/ucsb-cs156-w24/team01-w24-6pm-2
 
 * TODO: Correct the links to app on Dokku below,
