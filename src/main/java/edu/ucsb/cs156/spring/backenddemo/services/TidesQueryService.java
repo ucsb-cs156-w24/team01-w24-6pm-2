@@ -1,14 +1,12 @@
 package edu.ucsb.cs156.spring.backenddemo.services;
 
 
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.web.client.RestTemplate;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.net.http.HttpHeaders;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +19,7 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 
-
+@Slf4j
 @Service
 public class TidesQueryService {
 
@@ -43,7 +41,7 @@ public class TidesQueryService {
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        Map<String, String> uriVariables = Map.of(k1:"beginDate", beginDate, k2:"endDate", endDate, k3:"station", station);
+        Map<String, String> uriVariables = Map.of("beginDate", beginDate, "endDate", endDate, "station", station);
         
         ResponseEntity<String> re = restTemplate.exchange(ENDPOINT, HttpMethod.GET, entity, String.class,
                 uriVariables);
