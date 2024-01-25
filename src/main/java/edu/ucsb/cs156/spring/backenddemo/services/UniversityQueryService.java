@@ -24,7 +24,7 @@ public class UniversityQueryService {
         restTemplate = restTemplateBuilder.build();
     }
 
-    public static final String ENDPOINT = "";
+    public static final String ENDPOINT = "0";
 
     public String getJSON(String name) throws HttpClientErrorException {
        return "";
