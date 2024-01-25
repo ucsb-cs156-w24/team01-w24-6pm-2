@@ -8,10 +8,18 @@ import org.springframework.web.client.RestTemplate;
 
 import lombok.extern.slf4j.Slf4j;
 
-import org.springframework.boot.web.client.RestTemplateBuilder;
+import java.net.http.HttpHeaders;
+import java.util.List;
+import java.util.Map;
 
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 
 
 @Service
@@ -28,6 +36,17 @@ public class TidesQueryService {
     public static final String ENDPOINT = "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?application=ucsb-cs156&begin_date={beginDate}&end_date={endDate}&station={station}&product=predictions&datum=mllw&units=english&time_zone=lst_ldt&interval=hilo&format=json";
 
     public String getJSON(String beginDate, String endDate, String station) throws HttpClientErrorException {
-        return "";
+        log.info("beguinDate={}, endDate={}, station={}", beginDate, endDate, station);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        Map<String, String> uriVariables = Map.of(k1:"beginDate", beginDate, k2:"endDate", endDate, k3:"station", station);
+        
+        ResponseEntity<String> re = restTemplate.exchange(ENDPOINT, HttpMethod.GET, entity, String.class,
+                uriVariables);
+        return re.getBody();
     }
 }
