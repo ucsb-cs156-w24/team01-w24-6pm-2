@@ -23,7 +23,6 @@ import org.springframework.web.client.HttpClientErrorException;
 public class UniversityQueryService {
 
     private final RestTemplate restTemplate;
-    
     ObjectMapper mapper = new ObjectMapper();
 
     public UniversityQueryService(RestTemplateBuilder restTemplateBuilder) {
