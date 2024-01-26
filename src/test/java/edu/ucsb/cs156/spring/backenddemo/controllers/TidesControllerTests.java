@@ -11,23 +11,11 @@ import org.springframework.test.web.servlet.MvcResult;
 
 import edu.ucsb.cs156.spring.backenddemo.services.TidesQueryService;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.times;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.springframework.http.HttpHeaders;
-
 
 @WebMvcTest(value = TidesController.class)
 public class TidesControllerTests {
@@ -35,19 +23,19 @@ public class TidesControllerTests {
   @Autowired
   private MockMvc mockMvc;
   @MockBean
-  TidesQueryService mockTideQueryService;
+  TidesQueryService mockTidesQueryService;
 
 
   @Test
   public void test_getTides() throws Exception {
   
     String fakeJsonResult="{ \"fake\" : \"result\" }";
-    String begin_date = "10/10/2021";
-    String end_date = "10/11/2021";
     String station = "9411340";
-    when(mockTideQueryService.getJSON(eq(begin_date),eq(end_date),eq(station))).thenReturn(fakeJsonResult);
+    String begin_date = "20210101";
+    String end_date = "20210102";
+    when(mockTidesQueryService.getJSON(eq(station),eq(begin_date),eq(end_date))).thenReturn(fakeJsonResult);
 
-    String url = String.format("/api/Tides/get?begin_date=%s&end_date=%s&station=%s",begin_date,end_date,station);
+    String url = String.format("/api/tides/get?station=%s&begin_date=%s&end_date=%s",station,begin_date,end_date);
 
     MvcResult response = mockMvc
         .perform( get(url).contentType("application/json"))
