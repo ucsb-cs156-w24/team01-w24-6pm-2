@@ -32,12 +32,12 @@ import io.swagger.v3.oas.annotations.tags.Tag;
         @Operation(summary = &quot;Get tides for a certain station&quot;, description = &quot;JSON return format documented here: https://api.tidesandcurrents.noaa.gov/api/prod/&quot;)
         @GetMapping(&quot;/get&quot;)
         public ResponseEntity&lt;String&gt; getTides(
-            @Parameter(name=&quot;station&quot;, description=&quot;station id&quot;, example=&quot;9411340&quot;) @RequestParam String station,
             @Parameter(name=&quot;begin_date&quot;, description=&quot;begin date&quot;, example=&quot;20210101&quot;) @RequestParam String begin_date,
-            @Parameter(name=&quot;end_date&quot;, description=&quot;end date&quot;, example=&quot;20210102&quot;) @RequestParam String end_date
+            @Parameter(name=&quot;end_date&quot;, description=&quot;end date&quot;, example=&quot;20210102&quot;) @RequestParam String end_date,
+            @Parameter(name=&quot;station&quot;, description=&quot;station id&quot;, example=&quot;9411340&quot;) @RequestParam String station
         ) throws JsonProcessingException {
-<span class="fc" id="L39">            log.info(&quot;getTides: station={} begin_date={} end_date={}&quot;, station, begin_date, end_date);</span>
-<span class="fc" id="L40">            String result = tidesQueryService.getJSON(station, begin_date, end_date);</span>
+<span class="fc" id="L39">            log.info(&quot;getTides: begin_date={} end_date={} station={}&quot;, begin_date, end_date, station);</span>
+<span class="fc" id="L40">            String result = tidesQueryService.getJSON(begin_date, end_date, station);</span>
 <span class="fc" id="L41">            return ResponseEntity.ok().body(result);</span>
         }
 
