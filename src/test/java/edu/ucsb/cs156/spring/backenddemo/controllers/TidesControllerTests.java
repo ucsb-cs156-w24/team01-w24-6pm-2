@@ -30,12 +30,12 @@ public class TidesControllerTests {
   public void test_getTides() throws Exception {
   
     String fakeJsonResult="{ \"fake\" : \"result\" }";
-    String station = "9411340";
     String begin_date = "20210101";
     String end_date = "20210102";
-    when(mockTidesQueryService.getJSON(eq(station),eq(begin_date),eq(end_date))).thenReturn(fakeJsonResult);
+    String station = "9411340";
+    when(mockTidesQueryService.getJSON(eq(begin_date),eq(end_date),eq(station))).thenReturn(fakeJsonResult);
 
-    String url = String.format("/api/tides/get?station=%s&begin_date=%s&end_date=%s",station,begin_date,end_date);
+    String url = String.format("/api/tides/get?begin_date=%s&end_date=%s&station=%s",begin_date,end_date,station);
 
     MvcResult response = mockMvc
         .perform( get(url).contentType("application/json"))
