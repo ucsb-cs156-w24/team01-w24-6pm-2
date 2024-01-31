@@ -4,26 +4,43 @@ import org.springframework.web.client.RestTemplate;
 
 import lombok.extern.slf4j.Slf4j;
 
-import org.springframework.boot.web.client.RestTemplateBuilder;
+import java.util.List;
+import java.util.Map;
 
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 
-<span class="fc" id="L12">@Slf4j</span>
+<span class="fc" id="L19">@Slf4j</span>
 @Service
 public class PublicHolidayQueryService {
 
 
     private final RestTemplate restTemplate;
 
-<span class="fc" id="L19">    public PublicHolidayQueryService(RestTemplateBuilder restTemplateBuilder) {</span>
-<span class="fc" id="L20">        restTemplate = restTemplateBuilder.build();</span>
-<span class="fc" id="L21">    }</span>
+<span class="fc" id="L26">    public PublicHolidayQueryService(RestTemplateBuilder restTemplateBuilder) {</span>
+<span class="fc" id="L27">        restTemplate = restTemplateBuilder.build();</span>
+<span class="fc" id="L28">    }</span>
 
-    public static final String ENDPOINT = &quot;&quot;;
+    public static final String ENDPOINT = &quot;https://date.nager.at/api/v2/publicholidays/{year}/{countryCode}&quot;;
 
     public String getJSON(String year, String countryCode) throws HttpClientErrorException {
-<span class="nc" id="L26">        return &quot;&quot;;</span>
+        // log.info(&quot;year={}&quot;, year, &quot;countryCode={}&quot;, countryCode);
+<span class="fc" id="L34">        HttpHeaders headers = new HttpHeaders();</span>
+<span class="fc" id="L35">        headers.setAccept(List.of(MediaType.APPLICATION_JSON));</span>
+<span class="fc" id="L36">        headers.setContentType(MediaType.APPLICATION_JSON);</span>
+
+<span class="fc" id="L38">        Map&lt;String, String&gt; uriVariables = Map.of(&quot;year&quot;, year, &quot;countryCode&quot;, countryCode);</span>
+
+<span class="fc" id="L40">        HttpEntity&lt;String&gt; entity = new HttpEntity&lt;&gt;(&quot;body&quot;, headers);</span>
+
+<span class="fc" id="L42">        ResponseEntity&lt;String&gt; re = restTemplate.exchange(ENDPOINT, HttpMethod.GET, entity, String.class, uriVariables);</span>
+<span class="fc" id="L43">        return re.getBody();</span>
     }
 
    
