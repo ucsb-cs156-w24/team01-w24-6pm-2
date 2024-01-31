@@ -9,7 +9,7 @@ Lab instructions: <https://ucsb-cs156.github.io/w24/lab/team01.html>
 |Vincent Zhu |vincentlinzhu | `PublicHolidayQueryService` | `PublicHolidayController`   |
 |Kevin Lee   |kjlee2504     | `TidesQueryService`         | `TidesController`           |
 |Tienan Vu   |thienanvuu    | `UniversityQueryService`    | `UniversityController`      |
-|Jeff Chen   |2140814       | `ZipCodeQueryService`       | `ZipCodeController`         |
+|            |              | `ZipCodeQueryService`       | `ZipCodeController`         |
 |Mihir Bharti|mbharti12     | `JokeQueryService`          | `JokeQueryController`       |
 ```
 Repo: https://github.com/ucsb-cs156-w24/team01-w24-6pm-2
